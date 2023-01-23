@@ -1,0 +1,98 @@
+.titulo{
+    color: white;
+    display: flex;
+    justify-content: left;
+    width: 60%;
+}
+
+.inputsBT{
+    display: flex;
+    flex-flow: row wrap;
+    width: 80vw;
+    margin-top: 1vh;
+    justify-content: space-around;
+    align-items: center;
+}
+.tabla tr td{
+    justify-items: center;
+    height: 4vh;
+    width: 15vh;
+    text-align: center;
+}
+.tabla{
+    text-align: center;
+    margin-left: 15%;
+
+ }
+.tabla th{
+   text-align: center;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+.dropdown-menu{
+    width: 25vw;
+}
+
+#tableP7 th{
+    width: fit-content;
+    font-size: 1.2vw;
+    font-weight: 700;
+    border: solid 1px black;
+}
+.infoP7 td{
+    width: 0.3vw;
+    border: solid 1px black;
+
+}
+#tableP72 th{
+    width: fit-content;
+    font-size: 1vw;
+    font-weight: 700;
+    border: solid 1px black;
+}
+.infoP72 td{
+    width: 0.3vw;
+    border: solid 1px black;
+
+}
+.tablaPr{
+    position: relative;
+    margin-left: 0.3vw;
+}
+.tablaPr2{
+    position: relative;
+    margin-left: 0.3vw;
+}
+
+#tableP td{
+    width: fit-content;
+    font-size: 1vw;
+}
+#tablaPresentismo{
+    visibility: hidden;
+    margin-left: 1vh;
+
+}
+#showPresentismo{
+    visibility: hidden;
+    position: relative;
+    
+}
+#showFrancos{
+    visibility: hidden;
+    position: relative;
+    margin-left: -60vw;
+
+}
+#tableP7, #tableP72{
+    position: absolute;
+    visibility: hidden;
+    margin-top: 2vh;
+    margin-left: 30vh;
+    margin-right: 30vh;
+}
+
