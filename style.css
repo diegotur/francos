@@ -95,4 +95,18 @@
     margin-left: 30vh;
     margin-right: 30vh;
 }
+.buttons{
+    display: flex;
+    position: relative;
+    justify-content: right;
+    width: 90%;
+    margin: 1vw;
+}
+#faltantes{
+    margin-right: 1vh;
+    visibility: hidden;
+}
+#sobrantes{
+    visibility: hidden;
+}
 

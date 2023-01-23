@@ -137,6 +137,10 @@ function Func7(file) {
                 showPresentismo.style.visibility = "visible";
                 let showFrancos = document.getElementById("showFrancos");
                 showFrancos.style.visibility = "visible";
+                let faltantes = document.getElementById("faltantes");
+                let sobrantes = document.getElementById("sobrantes");
+                sobrantes.style.visibility = "visible";
+                faltantes.style.visibility = "visible";
 
                 let roa1 = [];
                 
@@ -160,6 +164,7 @@ function Func7(file) {
 
                 let cantFer = prompt("Indique cantidad de días feriados");
 
+                console.log(cantFer);
                 
                 let fer = [];
                 for (i=0;i<cantFer; i++){
@@ -205,18 +210,25 @@ function Func7(file) {
                     });
 
                     
-                    swal({
-                        icon: "warning",
-                        title: "CHOFERES CON FRANCOS FALTANTES",
-                        text: `${falta}`,
+
+                    faltantes.addEventListener('click', () => {
+                        const swal1 = swal({
+                            icon: "warning",
+                            title: "CHOFERES CON FRANCOS FALTANTES",
+                            text: `${falta}`,
+                        });
                     });
-                    let roaFinal = [];
-                    /* swal({
+                    sobrantes.addEventListener('click', () => {
+                         const swal2 = swal({
                         icon: "warning",
                         title: "CHOFERES CON FRANCOS SOBRANTES",
                         text: `${sobra}`,
-                    }); */
+                    });
+                    });
 
+
+                    let roaFinal = [];
+                    
                     
                     for (const elem of roa1){
                         let x=[];
@@ -229,19 +241,21 @@ function Func7(file) {
                             }
                         })
                         
-                            let f = x.pop();
-                            let ff = x.pop();
-                            x.unshift(f);
-                            x.unshift(ff);
-                            roaFinal.push(x);
+                        let f = x.pop();
+                        let ff = x.pop();
+                        x.unshift(f);
+                        x.unshift(ff);
+                        roaFinal.push(x);
+                        
+                    };
                     
-                };
                 for (const el of roaFinal){
                     if (el.length<11){
                         do {
                             el.push("");
                         } while(el.length<11);
                     }
+                   
                 }
                 console.log(roaFinal);
 
