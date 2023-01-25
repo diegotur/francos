@@ -129,7 +129,10 @@ function Func7(file) {
             workbook.SheetNames.forEach(function(sheetName) {
                 roa = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
 
-                let cargar = document.getElementById("cargar");
+                if (roa.length>0){
+
+                    
+                    let cargar = document.getElementById("cargar");
                 cargar.style.visibility = "hidden";
                 let inputFrancos = document.getElementById("inputFrancos");
                 inputFrancos.style.visibility = "hidden";
@@ -141,7 +144,7 @@ function Func7(file) {
                 let sobrantes = document.getElementById("sobrantes");
                 sobrantes.style.visibility = "visible";
                 faltantes.style.visibility = "visible";
-
+                
                 let roa1 = [];
                 
                 for (const elem of roa){
@@ -161,9 +164,9 @@ function Func7(file) {
                 }
                 
                 roa1 = roa1.sort((a, b) => (a.legajo > b.legajo) ? 1 : -1);
-
+                
                 let cantFer = prompt("Indique cantidad de días feriados");
-
+                
                 console.log(cantFer);
                 
                 let fer = [];
@@ -175,11 +178,11 @@ function Func7(file) {
 
                 let sobra = [];
                 let falta = [];
-
-
+                
+                
                 roa1.forEach(function(elem) {
                     for (i=0;i<fer.length;i++){
-
+                        
                         if (elem[fer[i]] == "F" || elem[fer[i]] == "F" || elem[fer[i]] == "v"|| elem[fer[i]] == "f"){
                             elem[fer[i]] = "FN";
                         };
@@ -192,51 +195,51 @@ function Func7(file) {
                         if((pair[1])=="F*"||(pair[1])=="f*"||(pair[1])=="F "||(pair[1])==" F*"||(pair[1])=="f"||(pair[1])==" F"||(pair[1])=="FV*"||(pair[1])=="F *"||(pair[1])=="FV"){
                         let x = pair[0];
                         elem[x] ="F";
-                        };
-                    });
-                    let x = 0;
-                    Object.entries(elem).forEach(pair => {
-                        if (pair[1]=="F"){
-                            x++;
-                        }
-                        
-                    });
+                    };
+                });
+                let x = 0;
+                Object.entries(elem).forEach(pair => {
+                    if (pair[1]=="F"){
+                        x++;
+                    }
+                    
+                });
                     if (x<6 && x>0){
                         falta.push(elem.legajo);
                     }
                     if (x>6){
                         sobra.push(elem.legajo);
                     }
-                    });
+                });
 
-                    
-
-                    faltantes.addEventListener('click', () => {
-                        const swal1 = swal({
-                            icon: "warning",
-                            title: "CHOFERES CON FRANCOS FALTANTES",
-                            text: `${falta}`,
-                        });
+                
+                
+                faltantes.addEventListener('click', () => {
+                    const swal1 = swal({
+                        icon: "warning",
+                        title: "CHOFERES CON FRANCOS FALTANTES",
+                        text: `${falta}`,
                     });
-                    sobrantes.addEventListener('click', () => {
-                         const swal2 = swal({
+                });
+                sobrantes.addEventListener('click', () => {
+                    const swal2 = swal({
                         icon: "warning",
                         title: "CHOFERES CON FRANCOS SOBRANTES",
                         text: `${sobra}`,
                     });
-                    });
-
-
-                    let roaFinal = [];
-                    
-                    
-                    for (const elem of roa1){
-                        let x=[];
-                        Object.entries(elem).forEach(pair => {
-                            if (pair[0]!="legajo" && pair[0]!="chofer"){
-                                x.push(pair[0]);
-                            }
-                            if (pair[1]!="F" && pair[1]!="FN"){
+                });
+                
+                
+                let roaFinal = [];
+                
+                
+                for (const elem of roa1){
+                    let x=[];
+                    Object.entries(elem).forEach(pair => {
+                        if (pair[0]!="legajo" && pair[0]!="chofer"){
+                            x.push(pair[0]);
+                        }
+                        if (pair[1]!="F" && pair[1]!="FN"){
                                 x.push(pair[1]);
                             }
                         })
@@ -249,16 +252,16 @@ function Func7(file) {
                         
                     };
                     
-                for (const el of roaFinal){
-                    if (el.length<11){
-                        do {
-                            el.push("");
-                        } while(el.length<11);
-                    }
-                   
+                    for (const el of roaFinal){
+                        if (el.length<11){
+                            do {
+                                el.push("");
+                            } while(el.length<11);
+                        }
+                        
                 }
                 console.log(roaFinal);
-
+                
                 let presentism = [];
                 for (const elem of roa1){
                     let x = {
@@ -273,36 +276,36 @@ function Func7(file) {
                     presentism.push(x);
                 }
                 let roaFinal2 = [];
-                    for (const elem of presentism){
-                        let x  =[];
-                        Object.entries(elem).forEach(pair=>{
-                            x.push([pair[1]]);
-                        })
-                        let f = x.pop();
-                                let ff = x.pop();
-                                x.unshift(f);
-                                x.unshift(ff);
-                                roaFinal2.push(x);
-                    }
-
-
-
+                for (const elem of presentism){
+                    let x  =[];
+                    Object.entries(elem).forEach(pair=>{
+                        x.push([pair[1]]);
+                    })
+                    let f = x.pop();
+                    let ff = x.pop();
+                    x.unshift(f);
+                    x.unshift(ff);
+                    roaFinal2.push(x);
+                }
+                
+                
+                
                 function funcFr() {
                     //Limpiar(infoP7, tablep7);
-
+                    
                     let borrarFr = document.getElementsByClassName("infoP7");
                     let borrarPr = document.getElementsByClassName("infoP72");
-
+                    
                     Limpiar(borrarFr, tableP7);
                     Limpiar(borrarPr, tableP72); 
-
+                    
                     tableP72.style.visibility = "hidden";
                     tableP7.style.visibility = "visible";
-
+                    
                     let titleList = ["LEGAJO", "CHOFER", "1", "2", "3", "4", "5", "6","7", "8", "9"];
-
+                    
                     TitleList("infoP7", titleList, tableP[0]);
-
+                    
                     for (const elem of roaFinal){
                         const node = document.createElement("tr");
                         node.classList.add("infoP7");
@@ -310,20 +313,20 @@ function Func7(file) {
                     }
                 }
                 function funcPr() {
-
+                    
                     let borrarFr = document.getElementsByClassName("infoP7");
                     let borrarPr = document.getElementsByClassName("infoP72");
                     
                     Limpiar(borrarFr, tableP7);
                     Limpiar(borrarPr, tableP72);
-
+                    
                     tableP7.style.visibility = "hidden";
                     tableP72.style.visibility = "visible";
-
+                    
                     let titleList2 = ["LEGAJO", "CHOFER", "1", "2", "3", "4", "5", "6","7", "8", "9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"];
-
+                    
                     TitleList("infoP72", titleList2, tableP72);
-
+                    
                     for (const elem of roaFinal2){
                         const node = document.createElement("tr");
                         node.classList.add("infoP72");
@@ -331,19 +334,20 @@ function Func7(file) {
                     }
                 }
                 let presentismo = document.getElementById("showPresentismo");
-
-                    presentismo.addEventListener('click', () => {
-                        funcPr()
-                    });
+                
+                presentismo.addEventListener('click', () => {
+                    funcPr()
+                });
                 let francos = document.getElementById("showFrancos");
-
-                    francos.addEventListener('click', () => {
+                
+                francos.addEventListener('click', () => {
                         funcFr()
                     });
-
+                    
+                }
                 });
             }
-    } catch (e) {
-        console.error(e);
+        } catch (e) {
+            console.error(e);
+        }
     }
-}
