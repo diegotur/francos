@@ -132,7 +132,7 @@ function Func7(file) {
                 if (roa.length>0){
 
                     
-                    let cargar = document.getElementById("cargar");
+                let cargar = document.getElementById("cargar");
                 cargar.style.visibility = "hidden";
                 let inputFrancos = document.getElementById("inputFrancos");
                 inputFrancos.style.visibility = "hidden";
@@ -165,12 +165,16 @@ function Func7(file) {
                 
                 roa1 = roa1.sort((a, b) => (a.legajo > b.legajo) ? 1 : -1);
                 
-                let cantFer = prompt("Indique cantidad de días feriados");
+                let cantfer;
+                for (i=0;i<1;i++){
+                    cantFer = prompt("Indique cantidad de días feriados");
+
+                }
                 
                 console.log(cantFer);
                 
                 let fer = [];
-                for (i=0;i<cantFer; i++){
+                for (i=0;i<parseInt(cantFer); i++){
                     fer[i] = (prompt("Indique número de día feriado")); 
                 }
                 
