@@ -164,6 +164,8 @@ function Func7(file) {
                 }
                 
                 roa1 = roa1.sort((a, b) => (a.legajo > b.legajo) ? 1 : -1);
+
+                console.log(roa1);
                 
                 let cantfer;
                 for (i=0;i<1;i++){
