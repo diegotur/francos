@@ -195,7 +195,7 @@ function Func7(file) {
                     roa1.forEach(function (elem) {
                         for (i = 0; i < fer.length; i++) {
 
-                            if (elem[fer[i]] == "F" || elem[fer[i]] == "F" || elem[fer[i]] == "v" || elem[fer[i]] == "f") {
+                            if (elem[fer[i]] == "F" || elem[fer[i]] == "F" || elem[fer[i]] == "F*" || elem[fer[i]] == "v" || elem[fer[i]] == "f") {
                                 elem[fer[i]] = "FN";
                             };
                         };
