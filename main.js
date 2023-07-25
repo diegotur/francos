@@ -216,7 +216,7 @@ function Func7(file) {
                             }
 
                         });
-                        if (x < 6 && x > 0 || x == 0 && elem.legajo != "1625" && elem.legajo != "1677" && elem.legajo != "1986" && elem.legajo != "2079" && elem.legajo != "2443" && elem.legajo != "2448" && elem.legajo != "2599" && elem.legajo != "2678" && elem.legajo != "2680" && elem.legajo != "2682" && elem.legajo != "2752" && elem.legajo != "2975") {
+                        if (x < 6 && x > 0 || x == 0 && elem.legajo != "1625" && elem.legajo != "1677" && elem.legajo != "1986" && elem.legajo != "2079" && elem.legajo != "2443" && elem.legajo != "2448" && elem.legajo != "2599" && elem.legajo != "2678" && elem.legajo != "2680" && elem.legajo != "2682" && elem.legajo != "2752" && elem.legajo != "2975" && elem.legajo != "2962") {
                             falta.push(elem.legajo);
                         }
                         if (x > 6) {
